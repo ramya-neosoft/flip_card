@@ -152,7 +152,7 @@ class FlipCardState extends State<FlipCard>
         ),
         TweenSequenceItem<double>(
           tween: Tween(begin: -pi / 2, end: 0.0)
-              .chain(CurveTween(curve: Curves.easeOut)),
+              .chain(CurveTween(curve: Curves.easeInBack)),
           weight: 50.0,
         ),
       ],
