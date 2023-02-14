@@ -135,7 +135,7 @@ class FlipCardState extends State<FlipCard>
       [
         TweenSequenceItem<double>(
           tween: Tween(begin: 0.0, end: pi / 2)
-              .chain(CurveTween(curve: Curves.easeIn)),
+              .chain(CurveTween(curve: Curves.easeIn.flipped)),
           weight: 50.0,
         ),
         TweenSequenceItem<double>(
@@ -143,7 +143,7 @@ class FlipCardState extends State<FlipCard>
           weight: 50.0,
         ),
       ],
-    ).animate(CurvedAnimation(parent: controller!, curve: Curves.easeInBack));
+    ).animate(controller!);
     _backRotation = TweenSequence(
       [
         TweenSequenceItem<double>(
@@ -152,12 +152,11 @@ class FlipCardState extends State<FlipCard>
         ),
         TweenSequenceItem<double>(
           tween: Tween(begin: -pi / 2, end: 0.0)
-              .chain(CurveTween(curve: Curves.easeOut)),
+              .chain(CurveTween(curve: Curves.easeOut.flipped)),
           weight: 50.0,
         ),
       ],
-    ).animate(
-        CurvedAnimation(parent: controller!, curve: Curves.easeInBack.flipped));
+    ).animate(controller!);
 
     widget.controller?.state = this;
 
